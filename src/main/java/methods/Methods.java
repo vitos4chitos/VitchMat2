@@ -47,7 +47,7 @@ public class Methods {
         double fb;
         double x = 0.0;
         double xn = 0.0d;
-        double fx;
+        double fx = 0;
         double eps = 0.0d;
         flag = true;
         int iterations = 0;
@@ -79,14 +79,23 @@ public class Methods {
             }
 
         }
-        output.finalStroke(x, iterations, e);
+        output.finalStroke(x, iterations, e, fx);
         output.makeChart(aa, bb, numOfFunction);
     }
 
     private void SecantMethod(int numOfFunction){
-        double x0 = a;
+        if(Double.compare(equations.getValue(numOfFunction, a), 0.0d) * Double.compare(equations.getValue(numOfFunction, b), 0.0d) > 0){
+            System.out.println("На данном промежутке нет корней, проверьте интервал");
+            System.exit(0);
+        }
+        double x0;
+        if(equations.getValue(numOfFunction, a) * equations.getValueOfSecondDerivactive(numOfFunction, a) > 0){
+            x0 = a;
+        }
+        else{
+            x0 = b;
+        }
         double x1 = x0 - (equations.getValue(numOfFunction, x0) / equations.getValueOfFirstDerivative(numOfFunction, x0));
-        b = x1;
         double x2;
         double eps;
         int iterations = 0;
@@ -103,7 +112,7 @@ public class Methods {
                 x1 = x2;
             }
         }
-        output.finalStroke(x2, iterations, x2);
+        output.finalStroke(x2, iterations, x2, equations.getValue(numOfFunction, x1));
         output.makeChart(a, b, numOfFunction);
     }
 
@@ -139,7 +148,7 @@ public class Methods {
             x0 = x1;
             x1 = x2;
         }
-        output.finalStroke(x1, iterations, e);
+        output.finalStroke(x1, iterations, e, equations.getValue(numOfFunction, x1));
         output.makeChart(a, b, numOfFunction);
     }
 }

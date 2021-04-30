@@ -111,57 +111,20 @@ public class Input {
                 System.out.println("Вы ввели что-то не то, попробуйте ещё раз");
             }
         }
-        switch(numberOfMethod){
-            case(2):
-                System.out.println("Введите интервал(левую границу и правую соответсвенно) построчно");
-                double a = 0, b = 0;
-                while(true){
-                    try{
-                        a = Double.parseDouble(scanner.nextLine());
-                        b = Double.parseDouble(scanner.nextLine());
-                        System.out.println("Начинаю вычисление...");
-                        Methods methods = new Methods(a, b, e, output);
-                        methods.solve(numberOfMethod, n);
-                        break;
-                    }
-                    catch (Exception exception){
-                        System.out.println("Вы ввели что-то не то, попробуйте ещё раз");
-                    }
-                }
+        System.out.println("Введите интервал(левую границу и правую соответсвенно) построчно");
+        double a = 0, b = 0;
+        while(true){
+            try{
+                a = Double.parseDouble(scanner.nextLine());
+                b = Double.parseDouble(scanner.nextLine());
+                System.out.println("Начинаю вычисление...");
+                Methods methods = new Methods(a, b, e, output);
+                methods.solve(numberOfMethod, n);
                 break;
-            case(4):
-                System.out.println("Введите X0");
-                double x0 = 0;
-                while(true){
-                    try{
-                        x0 = Double.parseDouble(scanner.nextLine());
-                        System.out.println("Начинаю вычисление...");
-                        Methods methods = new Methods(x0, x0, e, output);
-                        methods.solve(numberOfMethod, n);
-                        break;
-                    }
-                    catch (Exception exception){
-                        System.out.println("Вы ввели что-то не то, попробуйте ещё раз");
-                    }
-                }
-                break;
-            case(5):
-                System.out.println("Введите интервал(левую границу и правую соответсвенно) построчно");
-                double aa = 0, bb = 0;
-                while(true){
-                    try{
-                        aa = Double.parseDouble(scanner.nextLine());
-                        bb = Double.parseDouble(scanner.nextLine());
-                        System.out.println("Начинаю вычисление...");
-                        Methods methods = new Methods(aa, bb, e, output);
-                        methods.solve(numberOfMethod, n);
-                        break;
-                    }
-                    catch (Exception exception){
-                        System.out.println("Вы ввели что-то не то, попробуйте ещё раз");
-                    }
-                }
-                break;
+            }
+            catch (Exception exception){
+                System.out.println("Вы ввели что-то не то, попробуйте ещё раз");
+            }
         }
 
     }
@@ -187,26 +150,10 @@ public class Input {
                 int numOfMethod = Integer.parseInt(br.readLine());
                 double e = Double.parseDouble(br.readLine());
                 double a = 0, b = 0;
-                switch(numOfMethod){
-                    case(2):
-                        a = Double.parseDouble(br.readLine());
-                        b = Double.parseDouble(br.readLine());
-                        Methods methods = new Methods(a, b, e, output);
-                        methods.solve(numOfMethod, n);
-                        break;
-                    case (4):
-                        double x0 = Double.parseDouble(br.readLine());
-                        Methods methodss = new Methods(x0, x0, e, output);
-                        methodss.solve(numOfMethod, n);
-                        break;
-                    case (5):
-                        a = Double.parseDouble(br.readLine());
-                        b = Double.parseDouble(br.readLine());
-                        Methods methodsss = new Methods(a, b, e, output);
-                        methodsss.solve(numOfMethod, n);
-                        break;
-
-                }
+                a = Double.parseDouble(br.readLine());
+                b = Double.parseDouble(br.readLine());
+                Methods methodsss = new Methods(a, b, e, output);
+                methodsss.solve(numOfMethod, n);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (IOException e) {

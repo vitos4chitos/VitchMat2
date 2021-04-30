@@ -73,4 +73,19 @@ public class Equations {
                 return "";
         }
     }
+
+    public double getValueOfSecondDerivactive(int numOfFunction, double x){
+        switch (numOfFunction){
+            case (1):
+                return 6 * x *  + 2.84 * 2;
+            case (2):
+                return (10/Math.pow(x, 3));
+            case (3):
+                return 4 * Math.pow(Math.E, 2*x);
+            case (4):
+                return 6 * x;
+            default:
+                return 0;
+        }
+    }
 }

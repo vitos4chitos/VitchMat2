@@ -81,14 +81,18 @@ public class Output {
         }
     }
 
-    public void finalStroke(double x, int iterations, double e){
+    public void finalStroke(double x, int iterations, double e, double fx){
         if(console){
             System.out.println("Вот что мне удалось определить за  " + iterations + " операций:");
             System.out.printf("x* = %.8f c погрешностью " + e, x);
+            System.out.println();
+            System.out.printf("F(x*) = %.8f", fx);
         }
         else{
             printStream.println("Вот что мне удалось определить за  " + iterations + " операций:");
             printStream.printf("x* = %.8f c погрешностью " + e, x);
+            printStream.println();
+            printStream.printf("F(x*) = %.8f", fx);
         }
     }
 
